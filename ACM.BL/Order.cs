@@ -1,0 +1,32 @@
+using System;
+namespace CMS.BusinessLayer
+{
+    public class Order
+    {
+        public Order()
+        {
+
+        }
+        public Order(int orderId)
+        {
+            this.OrderId = orderId;
+        }
+        public int CustomerId { get; set; }
+        public DateTimeOffset? OrderDate { get; set; }
+        public Address ShippingAddress { get; set; }
+        public int OrderId { get; private set; }
+
+        /// <summary>
+        /// Validates the order data.
+        /// </summary>
+        /// <returns></returns>
+        public bool Validate()
+        {
+            var valid = true;
+
+            if (OrderDate == null) valid = false;
+
+            return valid;
+        }
+    }
+}
